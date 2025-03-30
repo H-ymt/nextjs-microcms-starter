@@ -11,9 +11,11 @@ export default function Article({ data }: Props) {
   return (
     <main>
       <h1>{data.title}</h1>
-      <Link href={`/blog/category/${data.category.id}`}>
-        <Category category={data.category} />
-      </Link>
+      {data.category ? (
+        <Link href={`/blog/category/${data.category.id}`}>
+          <Category category={data.category} />
+        </Link>
+      ) : null}
       <div
         dangerouslySetInnerHTML={{
           __html: `${formatRitchText(data.content)}`,
