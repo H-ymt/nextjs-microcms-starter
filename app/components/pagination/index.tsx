@@ -5,10 +5,9 @@ type Props = {
   totalCount: number;
   current?: number;
   basePath?: string;
-  q?: string;
 };
 
-export default function Pagination({ totalCount, current = 1, basePath = "/blog", q }: Props) {
+export default function Pagination({ totalCount, current = 1, basePath = "/blog" }: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / BLOG_LIST_LIMIT) }).map(
     (_, i) => i + 1
   );
