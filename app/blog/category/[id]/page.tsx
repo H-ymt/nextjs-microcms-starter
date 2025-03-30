@@ -1,4 +1,5 @@
 import BlogList from "@/app/components/blog-list";
+import Pagination from "@/app/components/pagination";
 import { BLOG_LIST_LIMIT } from "@/app/constants";
 import { getBlogList, getCategoryDetail } from "@/app/libs/microcms";
 
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export default async function Page({ params }: Props) {
-  const { contents: blog } = await getBlogList({
+  const { contents: blog, totalCount } = await getBlogList({
     limit: BLOG_LIST_LIMIT,
     filters: `category[equals]${params.id}`,
   });
@@ -20,6 +21,7 @@ export default async function Page({ params }: Props) {
     <>
       <p>カテゴリー: {category.name}</p>
       <BlogList articles={blog} />
+      <Pagination totalCount={totalCount} basePath={`/blog/category/${category.id}`} />
     </>
   );
 }

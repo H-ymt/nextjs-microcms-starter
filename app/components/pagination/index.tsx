@@ -8,7 +8,7 @@ type Props = {
   q?: string;
 };
 
-export default function Pagination({ totalCount, current = 1, basePath = "", q }: Props) {
+export default function Pagination({ totalCount, current = 1, basePath = "/blog", q }: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / BLOG_LIST_LIMIT) }).map(
     (_, i) => i + 1
   );
@@ -18,7 +18,7 @@ export default function Pagination({ totalCount, current = 1, basePath = "", q }
         {pages.map((p) => (
           <li key={p} aria-current={current === p ? "page" : undefined}>
             {current !== p ? (
-              <Link href={`${basePath}/page/${p}` + (q ? `?q=${q}` : "")}>{p}</Link>
+              <Link href={`${basePath}/page/${p}`}>{p}</Link>
             ) : (
               <span>{p}</span>
             )}
