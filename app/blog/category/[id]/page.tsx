@@ -4,12 +4,13 @@ import { BLOG_LIST_LIMIT } from "@/app/constants";
 import { getBlogList, getCategoryDetail } from "@/app/libs/microcms";
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const { contents: blog, totalCount } = await getBlogList({
     limit: BLOG_LIST_LIMIT,
     filters: `category[equals]${params.id}`,

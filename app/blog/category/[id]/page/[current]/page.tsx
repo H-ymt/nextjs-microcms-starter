@@ -5,13 +5,14 @@ import { getBlogList, getCategoryDetail } from "@/app/libs/microcms";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
     current: string;
-  };
+  }>;
 };
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const current = parseInt(params.current, 10);
   const category = await getCategoryDetail(params.id);
 
