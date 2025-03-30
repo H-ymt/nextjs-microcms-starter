@@ -1,5 +1,4 @@
 import { BLOG_LIST_LIMIT } from "@/app/constants";
-import styles from "./index.module.css";
 import Link from "next/link";
 
 type Props = {
@@ -15,22 +14,13 @@ export default function Pagination({ totalCount, current = 1, basePath = "", q }
   );
   return (
     <nav aria-label="ページナビゲーション">
-      <ul className={styles.container}>
+      <ul>
         {pages.map((p) => (
-          <li
-            className={styles.list}
-            key={p}
-            aria-current={current === p ? "page" : undefined}
-          >
+          <li key={p} aria-current={current === p ? "page" : undefined}>
             {current !== p ? (
-              <Link
-                href={`${basePath}/page/${p}` + (q ? `?q=${q}` : "")}
-                className={styles.item}
-              >
-                {p}
-              </Link>
+              <Link href={`${basePath}/page/${p}` + (q ? `?q=${q}` : "")}>{p}</Link>
             ) : (
-              <span className={`${styles.item} ${styles.current}`}>{p}</span>
+              <span>{p}</span>
             )}
           </li>
         ))}
