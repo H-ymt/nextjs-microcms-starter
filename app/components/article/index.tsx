@@ -1,3 +1,5 @@
+"use client";
+
 import { type Article } from "@/app/libs/microcms";
 import { formatRitchText } from "@/app/libs/utils";
 import Link from "next/link";
