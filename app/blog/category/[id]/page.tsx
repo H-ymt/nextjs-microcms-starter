@@ -1,6 +1,6 @@
 import BlogList from "@/app/components/blog-list";
 import { BLOG_LIST_LIMIT } from "@/app/constants";
-import { getBlogList } from "@/app/libs/microcms";
+import { getBlogList, getCategoryDetail } from "@/app/libs/microcms";
 
 type Props = {
   params: {
@@ -14,5 +14,12 @@ export default async function Page({ params }: Props) {
     filters: `category[equals]${params.id}`,
   });
 
-  return <BlogList articles={blog} />;
+  const category = await getCategoryDetail(params.id);
+
+  return (
+    <>
+      <p>カテゴリー: {category.name}</p>
+      <BlogList articles={blog} />
+    </>
+  );
 }
