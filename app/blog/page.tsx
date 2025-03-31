@@ -3,6 +3,7 @@ import BlogList from "../components/blog-list";
 import Pagination from "../components/pagination";
 import { BLOG_LIST_LIMIT } from "../constants";
 import { getBlogList, getCategoryList } from "../libs/microcms";
+import SearchField from "../components/search-field";
 
 export default async function Page() {
   const data = await getBlogList({
@@ -14,6 +15,7 @@ export default async function Page() {
   return (
     <div>
       <h1>Blog Page</h1>
+      <SearchField />
       <ul>
         {categories &&
           categories.contents.map((category) => (
