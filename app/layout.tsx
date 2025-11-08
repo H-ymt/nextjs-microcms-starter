@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${openSans.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${openSans.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

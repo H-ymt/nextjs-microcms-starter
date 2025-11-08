@@ -1,10 +1,10 @@
-import { createClient } from "microcms-js-sdk";
 import type {
-  MicroCMSQueries,
-  MicroCMSImage,
-  MicroCMSDate,
   MicroCMSContentId,
+  MicroCMSDate,
+  MicroCMSImage,
+  MicroCMSQueries,
 } from "microcms-js-sdk";
+import { createClient } from "microcms-js-sdk";
 import { notFound } from "next/navigation";
 
 export type Category = {
@@ -55,7 +55,10 @@ export const getBlogList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
-export const getBlogDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+export const getBlogDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
   const detailData = await client
     .getListDetail<Blog>({
       endpoint: "blogs",
@@ -78,7 +81,10 @@ export const getCategoryList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
-export const getCategoryDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+export const getCategoryDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
   const detailData = await client
     .getListDetail<Category>({
       endpoint: "categories",

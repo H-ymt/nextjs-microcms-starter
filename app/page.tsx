@@ -1,8 +1,8 @@
 import Link from "next/link";
 import BlogList from "./components/blog-list";
+import SearchField from "./components/search-field";
 import { TOP_BLOG_LIMIT } from "./constants";
 import { getBlogList } from "./libs/microcms";
-import SearchField from "./components/search-field";
 
 export default async function Home() {
   const data = await getBlogList({

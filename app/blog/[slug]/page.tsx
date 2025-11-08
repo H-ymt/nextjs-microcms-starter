@@ -1,7 +1,7 @@
-import { getBlogDetail } from "@/app/libs/microcms";
-import Article from "@/app/components/article";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Metadata } from "next";
+import Article from "@/app/components/article";
+import { getBlogDetail } from "@/app/libs/microcms";
 
 type Props = {
   params: Promise<{ slug: string }>;

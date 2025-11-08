@@ -1,4 +1,4 @@
-import { Article } from "@/app/libs/microcms";
+import type { Article } from "@/app/libs/microcms";
 import BlogListItem from "../blog-list-item";
 
 type Props = {
@@ -16,7 +16,7 @@ export default function BlogList({ articles }: Props) {
   return (
     <ul>
       {articles.map((article) => (
-        <BlogListItem key={article.id} blog={article} />
+        <BlogListItem blog={article} key={article.id} />
       ))}
     </ul>
   );

@@ -22,7 +22,10 @@ export default async function Page(props: Props) {
     <>
       <p>カテゴリー: {category.name}</p>
       <BlogList articles={blog} />
-      <Pagination totalCount={totalCount} basePath={`/blog/category/${category.id}`} />
+      <Pagination
+        basePath={`/blog/category/${category.id}`}
+        totalCount={totalCount}
+      />
     </>
   );
 }

@@ -21,11 +21,11 @@ function SearchFieldComponent() {
     <form onSubmit={handleSubmit}>
       <label htmlFor="">
         <input
-          type="text"
-          name="q"
           defaultValue={searchParams.get("q") ?? undefined}
           id=""
+          name="q"
           placeholder="キーワードを入力"
+          type="text"
         />
       </label>
     </form>

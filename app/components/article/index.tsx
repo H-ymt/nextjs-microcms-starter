@@ -1,10 +1,10 @@
-import { type Article } from "@/app/libs/microcms";
-import { formatRitchText } from "@/app/libs/utils";
 import Link from "next/link";
 import Category from "@/app/components/category";
+import type { Article as ArticleType } from "@/app/libs/microcms";
+import { formatRitchText } from "@/app/libs/utils";
 
 type Props = {
-  data: Article;
+  data: ArticleType;
 };
 
 export default function Article({ data }: Props) {

@@ -1,7 +1,7 @@
-import type { Category } from "@/app/libs/microcms";
+import type { Category as CategoryType } from "@/app/libs/microcms";
 
 type Props = {
-  category?: Category;
+  category?: CategoryType;
 };
 
 export default function Category({ category }: Props) {

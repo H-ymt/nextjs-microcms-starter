@@ -1,8 +1,8 @@
+import { notFound } from "next/navigation";
 import BlogList from "@/app/components/blog-list";
 import Pagination from "@/app/components/pagination";
 import { BLOG_LIST_LIMIT } from "@/app/constants";
 import { getBlogList, getCategoryDetail } from "@/app/libs/microcms";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -13,7 +13,7 @@ type Props = {
 
 export default async function Page(props: Props) {
   const params = await props.params;
-  const current = parseInt(params.current, 10);
+  const current = Number.parseInt(params.current, 10);
   const category = await getCategoryDetail(params.id);
 
   if (Number.isNaN(current) || current < 1) {
@@ -34,9 +34,9 @@ export default async function Page(props: Props) {
     <>
       <BlogList articles={blog} />
       <Pagination
-        totalCount={totalCount}
-        current={current}
         basePath={`/blog/category/${category.id}`}
+        current={current}
+        totalCount={totalCount}
       />
     </>
   );
